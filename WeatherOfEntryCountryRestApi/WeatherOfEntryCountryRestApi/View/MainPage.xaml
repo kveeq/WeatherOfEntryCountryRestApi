@@ -2,68 +2,89 @@
 <ContentPage
     x:Class="WeatherOfEntryCountryRestApi.View.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
     <StackLayout Margin="15">
         <SearchBar
             x:Name="CitiesNamesSearchBar"
-            Margin="0"
-            Placeholder="Введите город"
+            HorizontalOptions="StartAndExpand"
             IsSpellCheckEnabled="True"
+            Placeholder="Введите город"
             SearchButtonPressed="CitiesNamesSearchBar_SearchButtonPressed" />
         <StackLayout Orientation="Horizontal">
-            <Label FontSize="30" Text="Tемпература" />
-            <Label
-                x:Name="TempLbl"
-                FontSize="34"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding temp}"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+            <StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Label FontSize="34" Text="Ощущается как" />
-            <Label
-                x:Name="FeelsLikeLbl"
-                FontSize="34"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding feels_like}"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Tемпература" />
+                    <Label
+                        x:Name="TempLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding temp}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Label FontSize="34" Text="Давление" />
-            <Label
-                x:Name="PressureLbl"
-                FontSize="34"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding pressure}"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Ощущается как" />
+                    <Label
+                        x:Name="FeelsLikeLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding feels_like}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Label FontSize="34" Text="Влажность" />
-            <Label
-                x:Name="HumidityLbl"
-                FontSize="34"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding humidity}"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" />
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Давление" />
+                    <Label
+                        x:Name="PressureLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding pressure}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Влажность" />
+                    <Label
+                        x:Name="HumidityLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding humidity}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Ветер" />
+                    <Label
+                        x:Name="WindLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding speed}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Image
+                    x:Name="weatherImg"
+                    Aspect="AspectFit"
+                    HeightRequest="70"
+                    Source="photo.jpg"
+                    WidthRequest="70" />
+                <Label
+                    x:Name="qqww"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center" />
+            </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label FontSize="34" Text="Ветер" />
-            <Label
-                x:Name="WindLbl"
-                FontSize="34"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding speed}"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <maps:Map
+            x:Name="MyMap"
+            IsShowingUser="True"
+            MapClicked="MyMap_MapClicked" />
     </StackLayout>
-
 </ContentPage>
