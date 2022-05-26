@@ -6,7 +6,7 @@
     BackgroundImageSource="morning.webp"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
-    <StackLayout Margin="0" Background="LightBlue">
+    <StackLayout Margin="0">
         <SearchBar
             x:Name="CitiesNamesSearchBar"
             Margin="15"
