@@ -3,16 +3,18 @@
     x:Class="WeatherOfEntryCountryRestApi.View.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="morning.webp"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
-    <StackLayout Margin="15">
+    <StackLayout Margin="0" Background="LightBlue">
         <SearchBar
             x:Name="CitiesNamesSearchBar"
+            Margin="15"
             HorizontalOptions="StartAndExpand"
             IsSpellCheckEnabled="True"
             Placeholder="Введите город"
             SearchButtonPressed="CitiesNamesSearchBar_SearchButtonPressed" />
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Margin="15" Orientation="Horizontal">
             <StackLayout>
 
                 <StackLayout Orientation="Horizontal">
@@ -68,6 +70,16 @@
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                 </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Направление ветра" />
+                    <Label
+                        x:Name="WindDegLbl"
+                        FontSize="14"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding speed}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand">
                 <Image
@@ -82,9 +94,15 @@
                     HorizontalTextAlignment="Center" />
             </StackLayout>
         </StackLayout>
-        <maps:Map
-            x:Name="MyMap"
-            IsShowingUser="True"
-            MapClicked="MyMap_MapClicked" />
+        <Frame
+            Margin="30"
+            Padding="0"
+            CornerRadius="15"
+            VerticalOptions="FillAndExpand">
+            <maps:Map
+                x:Name="MyMap"
+                IsShowingUser="True"
+                MapClicked="MyMap_MapClicked" />
+        </Frame>
     </StackLayout>
 </ContentPage>

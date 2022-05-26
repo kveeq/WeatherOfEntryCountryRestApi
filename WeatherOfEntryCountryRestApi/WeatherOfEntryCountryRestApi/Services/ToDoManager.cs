@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WeatherOfEntryCountryRestApi.Model;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms.Maps;
 
 namespace WeatherOfEntryCountryRestApi.Services
 {
@@ -17,6 +18,10 @@ namespace WeatherOfEntryCountryRestApi.Services
         public Task<Rootobject> GetTodoItemModels(string cityName)
         {
             return service.GetTodoItemAsync(cityName);
+        }
+        public Task<Rootobject> GetTodoItemWithCoordinatesModels(Position position)
+        {
+            return service.GetTodoItemWithCoordinatesAsync(position);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using WeatherOfEntryCountryRestApi.Model;
+using Xamarin.Forms.Maps;
 
 namespace WeatherOfEntryCountryRestApi.Services
 {
@@ -34,6 +35,28 @@ namespace WeatherOfEntryCountryRestApi.Services
             TodoItems = new Rootobject();
 
             Uri uri = new Uri(string.Format(Constants.RestUrl, cityName));
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    TodoItems = JsonSerializer.Deserialize<Rootobject>(content, serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return TodoItems;
+        }     
+        
+        public async Task<Rootobject> GetTodoItemWithCoordinatesAsync(Position position)
+        {
+            TodoItems = new Rootobject();
+
+            Uri uri = new Uri(string.Format(Constants.RestUrl1, position.Latitude, position.Longitude));
 
             try
             {

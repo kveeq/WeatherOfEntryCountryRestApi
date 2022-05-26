@@ -86,7 +86,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\morning.webp" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeatherOfEntryCountryRestApi\WeatherOfEntryCountryRestApi.csproj">
       <Project>{D969F74A-2008-45D8-B4A2-4ECC336529DB}</Project>
